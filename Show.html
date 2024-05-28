@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Flow Chart</title>
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body>
+    <h1 id="courseName">과목명 :</h1>
+    <input type="file" id="fileInput">
+    <div id="output"></div>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const output = document.getElementById('output');
+            const courseName = document.getElementById('courseName');
+            
+            if (!file) {
+                output.innerHTML = "No file selected";
+                courseName.textContent = "과목명 : 파일이 선택되지 않았습니다.";
+                return;
+            }
+
+            // 파일 이름 출력
+            const fileName = file.name;
+            courseName.textContent = `과목명 : ${fileName}`;
+        });
+    </script>
+    <svg></svg>
+</body>
+</html>
