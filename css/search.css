@@ -1,0 +1,11 @@
+#searchContainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+#SearchTxt {
+    width: 200px; /* 원하는 너비로 조정 */
+}
