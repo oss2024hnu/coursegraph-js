@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Flow Chart</title>
     <link rel="stylesheet" href="/css/show.css">
+    <link rel="stylesheet" href="/css/search.css">
 </head>
 <body>
     <h1 id="courseName">과목명 :</h1>
     <input type="file" id="fileInput">
     <div id="output"></div>
+    <div id="searchContainer">
+        <input type="text" id="SearchTxt" placeholder="Search...">
+        <input type="button" id="SearchBtn" value="Search">
+    </div>
+    
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="main.js"></script>
     <script>
@@ -24,9 +30,32 @@
                 return;
             }
 
-            // 파일 이름 출력
             const fileName = file.name;
             courseName.textContent = `과목명 : ${fileName}`;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                output.textContent = e.target.result;
+            };
+            reader.readAsText(file);
+        });
+
+        function doSearch(text) {
+            if (window.find(text)) {
+                console.log('Text found:', text);
+            } else {
+                console.log('Text not found:', text);
+            }
+        }
+
+        document.getElementById('SearchBtn').addEventListener('click', function() {
+            doSearch(document.getElementById('SearchTxt').value);
+        });
+
+        document.getElementById('SearchTxt').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                doSearch(event.target.value);
+            }
         });
     </script>
     <svg></svg>
