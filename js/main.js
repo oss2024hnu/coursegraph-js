@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // 전달된 이수체계도 데이터를 SVG 형식으로 그림을 그림
 function drawSVGGraph(courses)
 {
-    const width = 1000;
+    const width = 1300;
     const height = 2000;
     const svg = d3.select("svg")
         .attr("width", width)
