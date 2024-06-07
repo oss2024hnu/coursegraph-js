@@ -30,3 +30,8 @@ Use local IP as host를 활성화 시켜줍니다.
 ---
 ![방법6](https://github.com/oss2024hnu/coursegraph-js/assets/162093749/1e7ed3ba-593b-48a9-8a5f-c00ef964902b)<br><br> 
 그림과 같이 우측 하단에 Go Live를 눌러서 실행 하면 라이브 서버를 활성화 시킬 수 있습니다.
+
+##
+파이썬으로 웹 서버를 띄우는 방법
+현재 디렉터리의 파일을 서빙하는 HTTP 웹 서버를 띄우는 명령어
+python -m http.server
