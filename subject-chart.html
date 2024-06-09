@@ -249,28 +249,38 @@
         
     </pre>
 
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-      mermaid.initialize({ startOnLoad: true });
-      function doSearch(text) {
-            if (window.find(text)) {
-                console.log('Text found:', text);
-            } else {
-                console.log('Text not found:', text);
-            }
-        }
-      document.getElementById('SearchBtn').addEventListener('click', function() {
-            doSearch(document.getElementById('SearchTxt').value);
-        });
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
 
-        document.getElementById('SearchTxt').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                doSearch(event.target.value);
-            }
-        });
-        document.getElementById('backButton').addEventListener('click', function() {
-            window.location.href = '/index.html';
-        });
-    </script>
-  </body>
-</html>
+    function doSearch(text) {
+        if (window.find(text)) {
+            console.log('Text found:', text);
+        } else {
+            console.log('Text not found:', text);
+        }
+    }
+
+    document.getElementById('SearchBtn').addEventListener('click', function() {
+        doSearch(document.getElementById('SearchTxt').value);
+    });
+
+    document.getElementById('SearchTxt').addEventListener('keydown', function(event) {
+if (event.key === 'Enter') {
+            doSearch(event.target.value);
+        }
+    });
+
+    document.getElementById('backButton').addEventListener('click', function() {
+        window.location.href = '/index.html';
+    });
+
+    // 페이지 로드 시 특정 섹션으로 자동 스크롤
+    window.onload = function() {
+        const element = document.getElementById("basicMajor");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+</script>
+</body>
