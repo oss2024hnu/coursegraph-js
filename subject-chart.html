@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>과목 이수체계도</title>
     <link rel="stylesheet" href="./css/subject-chart.css" />
     <link rel="stylesheet" href="/css/search.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>과목 이수체계도</h1>
     <button><a href="/index.html">돌아가기</a></button>
 
@@ -250,27 +252,25 @@
     </pre>
 
     <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-      mermaid.initialize({ startOnLoad: true });
-      function doSearch(text) {
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+        function doSearch(text) {
             if (window.find(text)) {
                 console.log('Text found:', text);
             } else {
                 console.log('Text not found:', text);
             }
         }
-      document.getElementById('SearchBtn').addEventListener('click', function() {
+        document.getElementById('SearchBtn').addEventListener('click', function () {
             doSearch(document.getElementById('SearchTxt').value);
         });
 
-        document.getElementById('SearchTxt').addEventListener('keydown', function(event) {
+        document.getElementById('SearchTxt').addEventListener('keydown', function (event) {
             if (event.key === 'Enter') {
                 doSearch(event.target.value);
             }
         });
-        document.getElementById('backButton').addEventListener('click', function() {
-            window.location.href = '/index.html';
-        });
     </script>
-  </body>
+</body>
+
 </html>
