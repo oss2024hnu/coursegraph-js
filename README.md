@@ -51,5 +51,7 @@ python -m http.server 3000 --bind 127.0.0.1
 
 현재 디렉토리가 아닌 다른 디렉토리를 루트로 하고싶다면 `--directory`를 사용하여 바꿀수있습니다.
 ```
-CGI 스크립트를 처리하도록 서버를 설정할 수 있습니다.
+python -m http.server --cgi
+```
+위의 코드를 예시로 CGI 스크립트를 처리하도록 서버를 설정할 수 있습니다.
 이를 위해 http.server 대신 http.server.CGIHTTPRequestHandler를 사용합니다.
