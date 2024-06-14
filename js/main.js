@@ -46,7 +46,7 @@ function drawSVGGraph(courses) {
 
   let yOffset = 50;
   for (const [semester, courses] of Object.entries(groupedCourses)) {
-    let xOffset = 50;
+    let xOffset = (width - (courses.length - 1) * 200) / 2;
     courses.forEach((course) => {
       nodes.push({
         name: course.과목명,
