@@ -18,7 +18,7 @@
 
 <body>
     <h1>과목 이수체계도</h1>
-    <button><a href="/index.html">돌아가기</a></button>
+    <button id="goBackBtn">돌아가기</button>
 
     <br /><br />
     <div id="searchContainer">
@@ -317,6 +317,10 @@
                     'A2', 'A3', 'A4', 'B3', 'B4', 'I1', 'I2'
                 ];
                 toggleTransparency(elementsToResize);
+            });
+
+            document.getElementById('goBackBtn').addEventListener('click', function () {
+                window.location.href = '/index.html';
             });
 
             console.log('Script loaded and DOM fully parsed');
