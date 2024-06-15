@@ -325,19 +325,38 @@
                 }
             }
 
+            function getChangeDivText(elementId) {
+              const element = document.getElementById(elementId); // 실제 DOM 요소를 가져옴
+              const text = element.innerText; // 요소의 텍스트 내용을 가져옴
+
+              if (text === "전공기초(필수)") {
+                  element.innerText = "전공기초(필수)(표시하지않음)";
+              } else if (text === "전공기초(필수)(표시하지않음)") {
+                  element.innerText = "전공기초(필수)";
+              } else if (text === "공통권장과목") {
+                  element.innerText = "공통권장과목(표시하지않음)";
+              } else if (text === "공통권장과목(표시하지않음)") {
+                  element.innerText = "공통권장과목";
+              }
+              
+            }
+
             document.getElementById('majorSelection').addEventListener('click', function () {
                 const elementsToResize = [
                     'B1', 'B2', 'C2', 'C3', 'D1', 'D2', 'D3',
                     'C5', 'D4', 'E2', 'E4', 'F2', 'F4', 'F5'
                 ];
                 toggleTransparency(elementsToResize);
+                getChangeDivText('majorSelection');
             });
 
             document.getElementById('basicMajor').addEventListener('click', function () {
+              
                 const elementsToResize = [
                     'A2', 'A3', 'A4', 'B3', 'B4', 'I1', 'I2'
                 ];
                 toggleTransparency(elementsToResize);
+                getChangeDivText('basicMajor');
             });
 
             console.log('Script loaded and DOM fully parsed');
