@@ -29,7 +29,18 @@
     <div id="basicMajor">전공기초(필수)</div>
     <div id="majorSelection">공통권장과목</div>
 
+<<<<<<< Updated upstream
     <pre class="mermaid">
+=======
+    <div id="navigation">
+        <button id="btn1학년" onclick="toggleSection('1학년', this)">1학년</button>
+        <button id="btn2학년" onclick="toggleSection('2학년', this)">2학년</button>
+        <button id="btn3학년" onclick="toggleSection('3학년', this)">3학년</button>
+        <button id="btn4학년" onclick="toggleSection('4학년', this)">4학년</button>
+    </div>
+
+    <pre id="subjectChart" class="mermaid">
+>>>>>>> Stashed changes
         %% Subgraph example
         graph LR
         
@@ -248,7 +259,6 @@
         linkStyle 39 stroke:darkpurple;
         linkStyle 40 stroke:lightgray;
         
-    
         style 1학년 fill:#bee9e8
         style 2학년 fill:#87CEFA
         style 3학년 fill:#cae9ff
@@ -321,6 +331,36 @@
 
             console.log('Script loaded and DOM fully parsed');
         });
+<<<<<<< Updated upstream
+=======
+
+        // Function to toggle visibility of nodes
+        function toggleSection(sectionId, button) {
+            const activeClass = 'active';
+            const isActive = button.classList.contains(activeClass);
+            const nodes = {
+                '1학년': ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4'],
+                '2학년': ['C1', 'C2', 'C3', 'C4', 'C5', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6'],
+                '3학년': ['E1', 'E2', 'E3', 'E4', 'E5', 'F1', 'F2', 'F3', 'F4', 'F5'],
+                '4학년': ['G1', 'G2', 'G3', 'G4', 'H1', 'H2', 'H3', 'H4', 'H5']
+            };
+
+            Object.keys(nodes).forEach(year => {
+                nodes[year].forEach(nodeId => {
+                    const node = document.querySelector(`g[id='${nodeId}']`);
+                    if (node) {
+                        if (year === sectionId && !isActive) {
+                            node.style.opacity = '1';
+                        } else {
+                            node.style.opacity = '0.2';
+                        }
+                    }
+                });
+            });
+
+            button.classList.toggle(activeClass);
+        }
+>>>>>>> Stashed changes
     </script>
 </body>
 
