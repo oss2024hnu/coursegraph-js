@@ -22,7 +22,7 @@
 
     <br /><br />
     <div id="searchContainer">
-        <input type="text" id="SearchTxt" placeholder="Search...">
+        <input type="text" id="SearchTxt" placeholder="Search..." list="searchOptions>
         <input type="button" id="SearchBtn" value="Search">
     </div>
     <div id="basicMajor">전공기초(필수)</div>
@@ -34,7 +34,49 @@
         <button onclick="scrollToSection('3학년')">3학년</button>
         <button onclick="scrollToSection('4학년')">4학년</button>
     </div>
-
+    <datalist id="searchOptions">
+        <option value="웹스크립트프로그래밍"/>
+        <option value="프로그래밍실습"/>
+        <option value="컴퓨터개론"/>
+        <option value="확률과 통계"/>
+        <option value="고급프로그래밍"/>
+        <option value="정보보호개론"/>
+        <option value="이산구조"/>
+        <option value="파이썬프로그래밍"/>
+        <option value="시스템프로그래밍"/>
+        <option value="시스템보안"/>
+        <option value="자료구조"/>
+        <option value="오픈소스sw개발"/>
+        <option value="컴퓨터네트워크"/>
+        <option value="알고리즘"/>
+        <option value="계산이론"/>
+        <option value="객체지향프로그래밍"/>
+        <option value="컴퓨터구조"/>
+        <option value="임베디드시스템 및 실습"/>  
+        <option value="양자컴퓨팅개론"/>
+        <option value="모바일프로그래밍"/>
+        <option value="프로그래밍언어론"/>
+        <option value="머신러닝의이해"/>
+        <option value="운영체제"/>
+        <option value=".NET프로그래밍"/>
+        <option value="네트워크 프로그래밍 및 보안"/>
+        <option value="인공지능"/>
+        <option value="컴퓨터그래픽스"/>
+        <option value="데이터베이스"/>
+        <option value="소프트웨어공학"/>
+        <option value="웹서버프로그래밍"/>
+        <option value="가상증강현실"/>
+        <option value="게임서버프로그래밍"/>
+        <option value="데이터베이스프로그래밍"/>
+        <option value="역공학"/>
+        <option value="암호의 이해"/>
+        <option value="빅데이터"/>
+        <option value="클라우드컴퓨팅"/>
+        <option value="블록체인"/>
+        <option value="캡스톤디자인"/>
+        <option value="융합캡스톤디자인"/>
+    </datalist>
+    
     <pre class="mermaid">
         %% Subgraph example
         graph LR
