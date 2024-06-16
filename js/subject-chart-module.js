@@ -9,6 +9,8 @@
                 if (isFirstSearch || searchText !== text) {
                     isFirstSearch = false;
                     searchText = text;
+                    let input = document.getElementById("SearchTxt");
+                    input.value = "";
                     if (!window.find(text, false, false, true, false, false, false)) {
                         alert('일치하는 과목을 찾을 수 없습니다.');
                         isFirstSearch = true;
