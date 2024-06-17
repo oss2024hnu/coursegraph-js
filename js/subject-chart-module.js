@@ -8,18 +8,37 @@ document.addEventListener('DOMContentLoaded', function () {
     let isBasicMajorTransparent = false;
 
     function doSearch(text) {
-        let isfind = false;
-        document.querySelectorAll('.nodeLabel')
-            .forEach((element) => {
-                if (doDeleteSpace(element.textContent).includes(doDeleteSpace(text))) {
-                    window.find(element.textContent, false, false, false, false, false, false);
+        if ((isFirstSearch || searchText !== text) && (text === "")) {
+            isFirstSearch = false;
+            searchText = text;
 
-                    isfind = true;
-                }
-            });
-        if (isfind)
-            return;
-        alert('일치하는 과목을 찾을 수 없습니다.');
+            text = window.sessionStorage.getItem("text");
+
+            if (!window.find(text, false, false, true, false, false, false)) {
+                alert('일치하는 과목을 찾을 수 없습니다.');
+                isFirstSearch = true;
+            }
+        } else {
+            if (!window.find(text, false, false, false, false, false, false)) {
+                window.find(text, false, false, true, false, false, false);
+            }
+        }
+        if ((isFirstSearch || searchText !== text) && (text !== "")) {
+            isFirstSearch = false;
+            searchText = text;
+            let input = document.getElementById("SearchTxt");
+            input.value = "";
+            window.sessionStorage.setItem("text", text);
+
+            if (!window.find(text, false, false, true, false, false, false)) {
+                alert('일치하는 과목을 찾을 수 없습니다.');
+                isFirstSearch = true;
+            }
+        } else {
+            if (!window.find(text, false, false, false, false, false, false)) {
+                window.find(text, false, false, true, false, false, false);
+            }
+        }
     }
 
     function doDeleteSpace(text) {
