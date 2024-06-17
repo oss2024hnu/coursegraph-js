@@ -22,6 +22,42 @@
         button {
             margin: 5px;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -31,7 +67,7 @@
     <button id="saveAsPngBtn">PNG로 저장</button>
     <button id="disableAllBtn">모든 과목 비활성화</button>
     <button id="enableAllBtn">모든 과목 활성화</button>
-    <button id="darkModeBtn">다크 모드</button> <!-- 다크 모드 버튼 추가 -->
+    <button id="darkModeBtn">다크 모드</button>
 
     <br /><br />
     <div id="searchContainer">
@@ -55,75 +91,74 @@
         
             subgraph "1학년"
                 subgraph "1학년 1학기"
-                A1["웹스크립트프로그래밍"]
-                A2["프로그래밍실습"]
-                A3["컴퓨터개론"]
-                A4["확률과 통계"]
+                A1["웹스크립트프로그래밍"]:::clickable
+                A2["프로그래밍실습"]:::clickable
+                A3["컴퓨터개론"]:::clickable
+                A4["확률과 통계"]:::clickable
                 end
                 subgraph "1학년 2학기"
-                B1["고급프로그래밍"]
-                B2["정보보호개론"]
-                B3["이산구조"]
-                B4["파이썬프로그래밍"]
+                B1["고급프로그래밍"]:::clickable
+                B2["정보보호개론"]:::clickable
+                B3["이산구조"]:::clickable
+                B4["파이썬프로그래밍"]:::clickable
             end
             end
         
             subgraph "2학년"
             subgraph "2학년 1학기"
-                C1["시스템프로그래밍"]
-                C2["시스템보안"]
-                C3["자료구조"]
-                C4["오픈소스sw개발"]
-                C5["컴퓨터네트워크"]
+                C1["시스템프로그래밍"]:::clickable
+                C2["시스템보안"]:::clickable
+                C3["자료구조"]:::clickable
+                C4["오픈소스sw개발"]:::clickable
+                C5["컴퓨터네트워크"]:::clickable
             end
             subgraph "2학년 2학기"
-                D1["알고리즘"]
-                D2["계산이론"]
-                D3["객체지향프로그래밍"]
-                D4["컴퓨터구조"]
-                D5["임베디드시스템 및 실습"]
-                D6["양자컴퓨팅개론"]
+                D1["알고리즘"]:::clickable
+                D2["계산이론"]:::clickable
+                D3["객체지향프로그래밍"]:::clickable
+                D4["컴퓨터구조"]:::clickable
+                D5["임베디드시스템 및 실습"]:::clickable
+                D6["양자컴퓨팅개론"]:::clickable
             end
             end
         
             subgraph "3학년"
                 subgraph "3학년 1학기"
-                E1["모바일프로그래밍"]
-                E2["프로그래밍언어론"]
-                E3["머신러닝의이해"]
-                E4["운영체제"]
-                E5[".NET프로그래밍"]
+                E1["모바일프로그래밍"]:::clickable
+                E2["프로그래밍언어론"]:::clickable
+                E3["머신러닝의이해"]:::clickable
+                E4["운영체제"]:::clickable
+                E5[".NET프로그래밍"]:::clickable
                 end
                 subgraph "3학년 2학기"
-                F1["네트워크 프로그래밍 및 보안"]
-                F2["인공지능"]
-                F3["컴퓨터그래픽스"]
-                F4["데이터베이스"]
-                F5["소프트웨어공학"]
+                F1["네트워크 프로그래밍 및 보안"]:::clickable
+                F2["인공지능"]:::clickable
+                F3["컴퓨터그래픽스"]:::clickable
+                F4["데이터베이스"]:::clickable
+                F5["소프트웨어공학"]:::clickable
                 end
             end
 
             subgraph 4학년
                 subgraph "4학년 1학기"
-                G1["웹서버프로그래밍"]
-                G2["가상증강현실"]
-                G3["게임서버프로그래밍"]
-                G4["데이터베이스프로그래밍"]
+                G1["웹서버프로그래밍"]:::clickable
+                G2["가상증강현실"]:::clickable
+                G3["게임서버프로그래밍"]:::clickable
+                G4["데이터베이스프로그래밍"]:::clickable
                 end
                 subgraph "4학년 2학기"
-                H1["역공학"]
-                H2["암호의 이해"]
-                H3["빅데이터"]
-                H4["클라우드컴퓨팅"]
-                H5["블록체인"]
+                H1["역공학"]:::clickable
+                H2["암호의 이해"]:::clickable
+                H3["빅데이터"]:::clickable
+                H4["클라우드컴퓨팅"]:::clickable
+                H5["블록체인"]:::clickable
             end
         end
 
         subgraph "캡스톤"
-            I1["캡스톤디자인"]
-            I2["융합캡스톤디자인"]
+            I1["캡스톤디자인"]:::clickable
+            I2["융합캡스톤디자인"]:::clickable
         end
-        
 
         A1 --> G1
         A2 --> B1
@@ -131,7 +166,7 @@
         A3 --> C4
         A4 --> E3
         A4 --> H2
-    
+
         B1 --> C5
         B1 --> E5
         B2 --> C2
@@ -141,7 +176,7 @@
         B3 --> D2
         B4 --> D3
         B4 --> E3
-    
+
         C1 --> D5
         C2 --> H1
         C3 --> D1
@@ -152,7 +187,7 @@
         C5 --> G3
         C5 --> H4
         C5 --> H5
-    
+
         D1 --> D6
         D1 -->F2
         D2 --> E2
@@ -160,28 +195,28 @@
         D3 --> E5
         D4 --> E4
         D4 --> H1
-    
+
         E4 --> G3
         E4 --> H1
         E4 --> H4
         E5 --> F3
-    
+
         F3 --> G2
         F4 --> G4
         F5 --> I1
         F5 --> I2
-    
+
         G4 --> H3
 
-        F5 ~~~ ㅤ
-        ㅤ ~~~ G1
+        F5 ~~~ dummyNode1
+        dummyNode1 ~~~ G1
                 
-        D6 ~~~ ㅤㅤ
-        ㅤㅤ ~~~ E1
+        D6 ~~~ dummyNode2
+        dummyNode2 ~~~ E1
             
-        style ㅤ fill:none,stroke:none,color:#fff;
-        style ㅤㅤ fill:none,stroke:none,color:#fff;
-        
+        style dummyNode1 fill:none,stroke:none,color:#fff;
+        style dummyNode2 fill:none,stroke:none,color:#fff;
+
         style A1 fill:#fff, stroke:#999999
         style C1 fill:#fff, stroke:#999999
         style C4 fill:#fff, stroke:#999999
@@ -267,6 +302,15 @@
         style 4학년 fill:#ADD8E6
     </pre>
 
+    <!-- Course Details Modal -->
+    <div id="courseDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="courseTitle"></h2>
+            <p id="courseDescription"></p>
+        </div>
+    </div>
+
     <script type="module" src="js/subject-chart-module.js"></script>
     <script src="js/subject-chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -318,14 +362,13 @@
                 document.querySelector(`[data-id="${courseId}"]`).classList.add('transparent');
             });
         });
+
         document.getElementById('enableAllBtn').addEventListener('click', () => {
             const allCourses = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4', 'C5', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'E1', 'E2', 'E3', 'E4', 'E5', 'F1', 'F2', 'F3', 'F4', 'F5', 'G1', 'G2', 'G3', 'G4', 'H1', 'H2', 'H3', 'H4', 'H5', 'I1', 'I2'];
             allCourses.forEach(courseId => {
                 document.querySelector(`[data-id="${courseId}"]`).classList.remove('transparent');
             });
         });
-
-        // Define the scrollToSection function
 
         document.getElementById('darkModeBtn').addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
@@ -367,19 +410,37 @@
             if (searchText.length < 1) {
                 alert('1글자 이상 입력해주세요');
             } else {
-                const allNodes = document.querySelectorAll('.node');
-                allNodes.forEach(node => {
-                    const nodeId = node.getAttribute('data-id');
-                    if (nodeId.includes(searchText) && !nodeId.includes('dummynode')) {
-                        node.classList.remove('transparent');
-                    } else {
-                        node.classList.add('transparent');
-                    }
-                });
-            }
-        });
                 // 검색 기능 수행
                 console.log('Searching for:', searchText);
+            }
+        });
+
+        // Function to show course details in a modal
+        function showCourseDetails(courseId) {
+            const modal = document.getElementById("courseDetailsModal");
+            const title = document.getElementById("courseTitle");
+            const description = document.getElementById("courseDescription");
+
+            title.textContent = courseId;
+            description.textContent = courseDetails[courseId] || "No description available.";
+
+            modal.style.display = "block";
+        }
+
+        // Add event listener for close button
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("courseDetailsModal").style.display = "none";
+        });
+
+        // Add event listeners to course nodes
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.node').forEach(node => {
+                node.addEventListener('click', function () {
+                    const courseId = node.textContent.trim();
+                    showCourseDetails(courseId);
+                });
+            });
+        });
     </script>
 
 </body>
