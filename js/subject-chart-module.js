@@ -138,5 +138,5 @@ function filterCourses(year) {
         } else {
             node.classList.add('transparent');
         }
-    });
+    }); 
 }
