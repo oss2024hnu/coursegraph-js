@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>과목 이수체계도</title>
-    <link rel="stylesheet" href="./css/subject-chart.css" />
+    <link rel="stylesheet" href="/css/subject-chart.css" />
     <link rel="stylesheet" href="/css/search.css">
 
     <style>
@@ -14,12 +14,14 @@
             transition: opacity 0.2s;
         }
     </style>
-
 </head>
 
 <body>
     <h1>과목 이수체계도</h1>
-    <button><a href="/index.html">돌아가기</a></button>
+    <button id="goBackBtn">돌아가기</button>
+    <button id="saveAsPngBtn">PNG로 저장</button>
+    <button id="disableAllBtn">모든 과목 비활성화</button> 
+    <button id="enableAllBtn">모든 과목 활성화</button>
 
     <br /><br />
     <div id="searchContainer">
@@ -29,18 +31,14 @@
     <div id="basicMajor">전공기초(필수)</div>
     <div id="majorSelection">공통권장과목</div>
 
-<<<<<<< Updated upstream
-    <pre class="mermaid">
-=======
     <div id="navigation">
-        <button id="btn1학년" onclick="toggleSection('1학년', this)">1학년</button>
-        <button id="btn2학년" onclick="toggleSection('2학년', this)">2학년</button>
-        <button id="btn3학년" onclick="toggleSection('3학년', this)">3학년</button>
-        <button id="btn4학년" onclick="toggleSection('4학년', this)">4학년</button>
+        <button onclick="filterCourses('1학년')">1학년</button>
+        <button onclick="filterCourses('2학년')">2학년</button>
+        <button onclick="filterCourses('3학년')">3학년</button>
+        <button onclick="filterCourses('4학년')">4학년</button>
     </div>
 
     <pre id="subjectChart" class="mermaid">
->>>>>>> Stashed changes
         %% Subgraph example
         graph LR
         
@@ -51,7 +49,6 @@
                 A3["컴퓨터개론"]
                 A4["확률과 통계"]
                 end
-                %% 1학년 2학기
                 subgraph "1학년 2학기"
                 B1["고급프로그래밍"]
                 B2["정보보호개론"]
@@ -61,7 +58,6 @@
             end
         
             subgraph "2학년"
-            %% 2학년 1학기
             subgraph "2학년 1학기"
                 C1["시스템프로그래밍"]
                 C2["시스템보안"]
@@ -69,7 +65,6 @@
                 C4["오픈소스sw개발"]
                 C5["컴퓨터네트워크"]
             end
-            %% 2학년 2학기
             subgraph "2학년 2학기"
                 D1["알고리즘"]
                 D2["계산이론"]
@@ -81,15 +76,13 @@
             end
         
             subgraph "3학년"
-                %% 3학년 1학기
                 subgraph "3학년 1학기"
-                    E1["모바일프로그래밍"]
-                    E2["프로그래밍언어론"]
-                    E3["머신러닝의이해"]
-                    E4["운영체제"]
-                    E5[".NET프로그래밍"]
+                E1["모바일프로그래밍"]
+                E2["프로그래밍언어론"]
+                E3["머신러닝의이해"]
+                E4["운영체제"]
+                E5[".NET프로그래밍"]
                 end
-                %% 3학년 2학기
                 subgraph "3학년 2학기"
                 F1["네트워크 프로그래밍 및 보안"]
                 F2["인공지능"]
@@ -100,14 +93,12 @@
             end
 
             subgraph 4학년
-                %% 4학년 1학기
                 subgraph "4학년 1학기"
                 G1["웹서버프로그래밍"]
                 G2["가상증강현실"]
                 G3["게임서버프로그래밍"]
                 G4["데이터베이스프로그래밍"]
-            end
-            %% 4학년 2학기
+                end
                 subgraph "4학년 2학기"
                 H1["역공학"]
                 H2["암호의 이해"]
@@ -118,12 +109,11 @@
         end
 
         subgraph "캡스톤"
-            I1["캡스턴디자인"]
-            I2["융합캡스턴디자인"]
+            I1["캡스톤디자인"]
+            I2["융합캡스톤디자인"]
         end
         
 
-        %% 학년 간 과목 이수 연결
         A1 --> G1
         A2 --> B1
         A3 --> C1
@@ -200,7 +190,7 @@
         style H3 fill:#fff, stroke:#999999
         style H4 fill:#fff, stroke:#999999
         style H5 fill:#fff, stroke:#999999
-    
+
         style B1 fill:#FFD072, stroke:#b28704
         style B2 fill:#FFD072, stroke:#b28704
         style C2 fill:#FFD072, stroke:#b28704
@@ -216,7 +206,7 @@
         style F4 fill:#FFD072, stroke:#b28704
         style F5 fill:#FFD072, stroke:#b28704
 
-        
+
         linkStyle 0 stroke:red;
         linkStyle 1 stroke:blue;
         linkStyle 2 stroke:green;
@@ -259,108 +249,63 @@
         linkStyle 39 stroke:darkpurple;
         linkStyle 40 stroke:lightgray;
         
+    
         style 1학년 fill:#bee9e8
         style 2학년 fill:#87CEFA
         style 3학년 fill:#cae9ff
         style 4학년 fill:#ADD8E6
-        
     </pre>
 
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            function doSearch(text) {
-                if (window.find(text)) {
-                    console.log('Text found:', text);
-                } else {
-                    console.log('Text not found:', text);
-                }
-            }
-            document.getElementById('SearchBtn').addEventListener('click', function () {
-                doSearch(document.getElementById('SearchTxt').value);
+    <script type="module" src="js/subject-chart-module.js"></script>
+    <script src="js/subject-chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.getElementById('saveAsPngBtn').addEventListener('click', function () {
+            html2canvas(document.querySelector("#subjectChart")).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'subject-chart.png';
+                link.href = canvas.toDataURL("image/png");
+                link.click();
             });
-
-            document.getElementById('SearchTxt').addEventListener('keydown', function (event) {
-                if (event.key === 'Enter') {
-                    doSearch(event.target.value);
-                }
-            });
-
-            function toggleTransparency(elementsToResize) {
-                let isTransparent = false;
-                document.querySelectorAll('.node').forEach(node => {
-                    if (node.classList.contains('transparent')) {
-                        isTransparent = true;
-                    }
-                });
-
-                if (isTransparent) {
-                    document.querySelectorAll('.node').forEach(node => {
-                        node.classList.remove('transparent');
-                    });
-                } else {
-                    document.querySelectorAll('.node').forEach(node => {
-                        node.classList.add('transparent');
-                    });
-
-                    elementsToResize.forEach(id => {
-                        const element = document.querySelector(`[data-id="${id}"]`);
-                        if (element) {
-                            element.classList.remove('transparent');
-                        }
-                    });
-                }
-            }
-
-            document.getElementById('majorSelection').addEventListener('click', function () {
-                const elementsToResize = [
-                    'B1', 'B2', 'C2', 'C3', 'D1', 'D2', 'D3',
-                    'C5', 'D4', 'E2', 'E4', 'F2', 'F4', 'F5'
-                ];
-                toggleTransparency(elementsToResize);
-            });
-
-            document.getElementById('basicMajor').addEventListener('click', function () {
-                const elementsToResize = [
-                    'A2', 'A3', 'A4', 'B3', 'B4', 'I1', 'I2'
-                ];
-                toggleTransparency(elementsToResize);
-            });
-
-            console.log('Script loaded and DOM fully parsed');
         });
-<<<<<<< Updated upstream
-=======
 
-        // Function to toggle visibility of nodes
-        function toggleSection(sectionId, button) {
-            const activeClass = 'active';
-            const isActive = button.classList.contains(activeClass);
-            const nodes = {
+        function filterCourses(year) {
+            const yearSections = {
                 '1학년': ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4'],
                 '2학년': ['C1', 'C2', 'C3', 'C4', 'C5', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6'],
                 '3학년': ['E1', 'E2', 'E3', 'E4', 'E5', 'F1', 'F2', 'F3', 'F4', 'F5'],
                 '4학년': ['G1', 'G2', 'G3', 'G4', 'H1', 'H2', 'H3', 'H4', 'H5']
             };
 
-            Object.keys(nodes).forEach(year => {
-                nodes[year].forEach(nodeId => {
-                    const node = document.querySelector(`g[id='${nodeId}']`);
-                    if (node) {
-                        if (year === sectionId && !isActive) {
-                            node.style.opacity = '1';
-                        } else {
-                            node.style.opacity = '0.2';
-                        }
-                    }
-                });
+            document.querySelectorAll('.node').forEach(node => {
+                const nodeId = node.getAttribute('data-id');
+                if (yearSections[year].includes(nodeId)) {
+                    node.classList.remove('transparent');
+                } else {
+                    node.classList.add('transparent');
+                }
             });
-
-            button.classList.toggle(activeClass);
         }
->>>>>>> Stashed changes
+
+        document.querySelectorAll('#navigation button').forEach(button => {
+            button.addEventListener('click', () => {
+                const year = button.textContent;
+                filterCourses(year);
+            });
+        });
+
+        document.getElementById('disableAllBtn').addEventListener('click', () => {
+                const allCourses = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4', 'C5', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'E1', 'E2', 'E3', 'E4', 'E5', 'F1', 'F2', 'F3', 'F4', 'F5', 'G1', 'G2', 'G3', 'G4', 'H1', 'H2', 'H3', 'H4', 'H5', 'I1', 'I2'];
+                allCourses.forEach(courseId => {
+                    document.querySelector(`[data-id="${courseId}"]`).classList.add('transparent');
+            });
+        });
+            document.getElementById('enableAllBtn').addEventListener('click', () => {
+                    const allCourses = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4', 'C5', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'E1', 'E2', 'E3', 'E4', 'E5', 'F1', 'F2', 'F3', 'F4', 'F5', 'G1', 'G2', 'G3', 'G4', 'H1', 'H2', 'H3', 'H4', 'H5', 'I1', 'I2'];
+                    allCourses.forEach(courseId => {
+                        document.querySelector(`[data-id="${courseId}"]`).classList.remove('transparent');
+            });
+        });
     </script>
 </body>
 
