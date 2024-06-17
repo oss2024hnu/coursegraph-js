@@ -55,3 +55,9 @@ python -m http.server --cgi
 ```
 위의 코드를 예시로 CGI 스크립트를 처리하도록 서버를 설정할 수 있습니다.
 이를 위해 http.server 대신 http.server.CGIHTTPRequestHandler를 사용합니다.
+```
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+위의 코드를 사용하여 디버그 모드를 활성화 하면 개발 중에도 오류 메시지와 코드 변경 사항을 실시간으로 반영할 수 있습니다.
+```
