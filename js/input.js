@@ -23,6 +23,9 @@ function drawGraph(data, ctx) {
     const boxWidth = 300; // 박스 너비
     const boxHeight = 80; // 박스 높이
 
+    // 캔버스 초기화
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
     let columns = {};
 
     // 각 과목의 x, y 위치를 계산
