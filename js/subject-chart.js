@@ -6,7 +6,9 @@ const subjectDetails = {
 document.getElementById('goBackBtn').addEventListener('click', function () {
     window.location.href = '/index.html';
 });
-
+document.getElementById('reset-button').addEventListener('click', function () {
+    location.reload();
+});
 console.log('Script loaded and DOM fully parsed');
 
         function doSearch(text) {
